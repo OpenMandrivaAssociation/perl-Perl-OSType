@@ -1,23 +1,23 @@
 %define upstream_name    Perl-OSType
 %define upstream_version 1.002
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 1
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	2
 
-Summary:    Map Perl operating system names to generic types
-License:    GPL+ or Artistic
-Group:      Development/Perl
-Url:        http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/Perl/%{upstream_name}-%{upstream_version}.tar.gz
+Summary:	Map Perl operating system names to generic types
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/Perl/%{upstream_name}-%{upstream_version}.tar.gz
 
-BuildRequires: perl(Exporter)
-BuildRequires: perl(File::Find)
-BuildRequires: perl(File::Temp)
-BuildRequires: perl(Test::More)
-BuildRequires: perl(constant)
-BuildArch: noarch
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
+BuildRequires:	perl-devel
+BuildRequires:	perl(Exporter)
+BuildRequires:	perl(File::Find)
+BuildRequires:	perl(File::Temp)
+BuildRequires:	perl(Test::More)
+BuildRequires:	perl(constant)
+BuildArch:	noarch
 
 %description
 Modules that provide OS-specific behaviors often need to know if the
@@ -35,24 +35,22 @@ rather than 'Win32'.)
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
-
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
 %make test
 
 %install
-rm -rf %buildroot
 %makeinstall_std
 
-%clean
-rm -rf %buildroot
-
 %files
-%defattr(-,root,root)
 %doc README Changes LICENSE META.yml META.json
 %{_mandir}/man3/*
-%perl_vendorlib/*
+%{perl_vendorlib}/*
 
+%changelog
+* Fri Jun 17 2011 Guillaume Rousse <guillomovitch@mandriva.org> 1.2.0-1mdv2012.0
++ Revision: 685815
+- import perl-Perl-OSType
 
