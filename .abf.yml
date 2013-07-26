@@ -1,2 +1,4 @@
+removed_sources:
+  Perl-OSType-1.002.tar.gz: fc625f381b63288268873aa43cc80091233a7076
 sources:
-  "Perl-OSType-1.002.tar.gz": fc625f381b63288268873aa43cc80091233a7076
+  Perl-OSType-1.003.tar.gz: df8a3614d40bb6d24bbb03686e03aef436f4cd8b
