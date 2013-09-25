@@ -1,17 +1,18 @@
 %define upstream_name    Perl-OSType
-%define upstream_version 1.003
+%define upstream_version 1.004
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version 1.003
+Version:	%perl_convert_version %{upstream_version}
 Release:	1
 
 Summary:	Map Perl operating system names to generic types
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Perl/Perl-OSType-1.003.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/Perl/Perl-OSType-%{upstream_version}.tar.gz
 
 BuildRequires:	perl-devel
+BuildRequires: perl(Capture::Tiny)
 BuildRequires:	perl(Exporter)
 BuildRequires:	perl(File::Find)
 BuildRequires:	perl(File::Temp)
@@ -53,5 +54,6 @@ perl Makefile.PL INSTALLDIRS=vendor
 * Fri Jun 17 2011 Guillaume Rousse <guillomovitch@mandriva.org> 1.2.0-1mdv2012.0
 + Revision: 685815
 - import perl-Perl-OSType
+
 
 
