@@ -1,5 +1,5 @@
 %define upstream_name    Perl-OSType
-%define upstream_version 1.004
+%define upstream_version 1.006
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version %{upstream_version}
@@ -54,6 +54,7 @@ perl Makefile.PL INSTALLDIRS=vendor
 * Fri Jun 17 2011 Guillaume Rousse <guillomovitch@mandriva.org> 1.2.0-1mdv2012.0
 + Revision: 685815
 - import perl-Perl-OSType
+
 
 
 
